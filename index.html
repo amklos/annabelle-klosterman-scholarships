@@ -84,14 +84,24 @@
     .ledger-head{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end;margin-bottom:15px}
     .ledger-head h2{font-size:clamp(30px,3.2vw,40px);line-height:1.02;letter-spacing:-.065em;margin:5px 0 0;color:var(--ink)}
     .ledger-head p{justify-self:end;max-width:440px;margin:0 0 3px;color:var(--copy);font-size:11px;line-height:1.5}
-    .ledger-grid{grid-template-columns:minmax(280px,.76fr) minmax(0,1.24fr);gap:16px;align-items:start}
-    .ledger-total{position:relative;overflow:hidden;min-height:0;height:fit-content;align-self:start;display:flex;flex-direction:column;justify-content:space-between;gap:26px;padding:22px;background:var(--purple);color:#fff;border-radius:14px;box-shadow:8px 8px 0 #64317320}
+    .ledger-grid{grid-template-columns:minmax(280px,.76fr) minmax(0,1.24fr);gap:16px;align-items:stretch}
+    .ledger-total{position:relative;overflow:hidden;min-height:0;height:auto;align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:22px;background:var(--purple);color:#fff;border-radius:14px;box-shadow:8px 8px 0 #64317320}
     .ledger-total:after{content:'$';position:absolute;right:-15px;bottom:-70px;font:205px/.9 var(--serif);color:#ffffff12;pointer-events:none}
     .ledger-total .section-label{position:relative;z-index:1;color:var(--sky);font-size:9px;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
     .ledger-total strong{position:relative;z-index:1;display:block;margin:14px 0 4px;color:#fff;font-size:clamp(58px,7vw,82px);line-height:.88;letter-spacing:-.09em}
     .ledger-total strong span{font-size:.48em;color:var(--sky)}
     .ledger-total p{position:relative;z-index:1;max-width:270px;margin:0;color:#f2eaf4;font:italic 16px/1.35 var(--serif)}
-    .ledger-total .ledger-note{position:relative;z-index:1;margin:0;padding:11px 12px;border:1px solid #ABDAFC60;border-radius:8px;background:#ABDAFC18;color:#fff;font-size:9px;line-height:1.45}
+    .ledger-facts{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #ffffff45;border-bottom:1px solid #ffffff45;padding:13px 0}
+    .ledger-facts>div{display:flex;flex-direction:column;gap:4px}
+    .ledger-facts>div+div{padding-left:14px;border-left:1px solid #ffffff45}
+    .ledger-facts b{color:var(--sky);font-size:26px;line-height:1;font-weight:850}
+    .ledger-facts span{color:#eee5f1;font-size:9px;line-height:1.3}
+    .ledger-payoff{position:relative;z-index:1;padding:13px;border:1px solid #ABDAFC55;border-radius:9px;background:#ABDAFC16}
+    .payoff-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;color:var(--sky);font-size:8px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+    .payoff-stamp{width:25px;height:25px;border:1px solid #ABDAFC;border-radius:50%;display:grid;place-items:center;color:var(--sky);font-size:14px;transform:rotate(-9deg)}
+    .payoff-row{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-top:1px dashed #ffffff55;color:#eee5f1;font-size:9px;line-height:1.35}
+    .payoff-row b{color:#fff;text-align:right}
+    .payoff-note{margin-top:7px;color:var(--sky);font:italic 11px/1.35 var(--serif)}
     .ledger-info{padding:20px 22px;background:#fff;border:1px solid #ded6e4;border-radius:13px;box-shadow:0 8px 22px #30213b0a}
     .ledger-info .kicker{font-size:9px}
     .ledger-info h2{font-size:clamp(30px,3.1vw,40px);line-height:1.02;letter-spacing:-.065em;margin:5px 0 8px;max-width:650px}
@@ -112,7 +122,7 @@
     .ledger-info .offer-proof small{position:relative;z-index:1;display:inline-flex;align-items:center;gap:4px;border:1px solid #ABDAFC70;background:#ABDAFC1A;border-radius:99px;padding:4px 6px;color:#ABDAFC;text-transform:uppercase;letter-spacing:.07em;font-size:6px;font-weight:900;white-space:nowrap}
     .ledger-info .offer-proof strong{position:relative;z-index:1;display:block;color:#fff;font-size:10px;line-height:1.25;margin:7px 0 5px}
     .ledger-info .offer-proof span{position:relative;z-index:1;margin-top:auto;color:#f2eaf4;font-size:7px;line-height:1.4}
-    @media(max-width:900px){.proof-section{padding:36px 0}.ledger-grid{grid-template-columns:1fr}.ledger-head{grid-template-columns:1fr;gap:6px}.ledger-head p{justify-self:start}.ledger-info h2{font-size:clamp(32px,5vw,44px)}}
+    @media(max-width:900px){.proof-section{padding:36px 0}.ledger-grid{grid-template-columns:1fr;align-items:start}.ledger-total{align-self:start;min-height:0;height:auto}.ledger-head{grid-template-columns:1fr;gap:6px}.ledger-head p{justify-self:start}.ledger-info h2{font-size:clamp(32px,5vw,44px)}}
     @media(max-width:580px){.proof-section{padding:30px 0 36px}.ledger-grid{gap:12px}.ledger-head{margin-bottom:12px}.ledger-head h2{font-size:29px}.ledger-total{padding:18px;gap:17px}.ledger-total strong{font-size:64px}.ledger-info{padding:16px}.ledger-info h2{font-size:32px}.ledger-info .names{gap:5px}.ledger-info .names span{padding:6px 8px;font-size:8px}.offers-head{margin-top:14px}.ledger-info .offer-row{grid-template-columns:1fr}.ledger-info .offer-proof{min-height:90px}}
 </style>
 </head>
@@ -126,7 +136,7 @@
     <section class="proof-section" id="scholarships"><div class="wrap">
       <div class="ledger-head"><div><div class="kicker">The scholarships behind my story</div><h2>More than awards. A way through college.</h2></div><p>I was homeschooled and not a 4.0 student. Scholarships that fit my interests helped cover tuition, and the extra came back in checks.</p></div>
       <div class="ledger-grid">
-        <aside class="ledger-total reveal"><div><div class="section-label">My scholarship story</div><strong>$525K<span>+</span></strong><p>earned in scholarships, with three full-ride offers along the way</p></div><div class="ledger-note">50+ applications · Tuition covered · University checks for the extra</div></aside>
+        <aside class="ledger-total reveal"><div><div class="section-label">My scholarship story</div><strong>$525K<span>+</span></strong><p>earned in scholarships</p></div><div class="ledger-facts"><div><b>50+</b><span>applications submitted</span></div><div><b>3</b><span>full-ride offers</span></div></div><div class="ledger-payoff"><div class="payoff-head"><span>What the awards did</span><span class="payoff-stamp" aria-hidden="true">✓</span></div><div class="payoff-row"><span>College tuition</span><b>Covered</b></div><div class="payoff-row"><span>Awards beyond tuition</span><b>Checks from my university</b></div><div class="payoff-note">Stipends came on top of that.</div></div></aside>
         <div class="ledger-info reveal"><div class="kicker">The part that still surprises me</div><h2>My scholarships paid for college. Then there was more.</h2><p class="lede">My awards added up to more than my tuition. After the university paid my bill, it sent me checks for the remaining funds. With the stipends, I was paid to go to college.</p><div class="cash-note">“I wasn’t a 4.0 student. I learned where to look and kept applying.”</div><h3>Scholarships I received</h3><div class="names">
           <span>Adobe Research Women in Technology</span><span>MalwareBytes STEM</span><span>ISC² Undergraduate Women’s Cybersecurity</span><span>Civil Air Patrol Academic</span><span>ESET Women in Cybersecurity</span><span>Ridgeline STEM</span><span>Cyber Defense Media Group</span><span>Intertech STEM</span><span>Peraton</span>
         </div><div class="offers-head"><div><strong>Three full-ride offers</strong><p>Full tuition, a stipend, and a guaranteed job.</p></div><span class="offers-count" aria-label="Three offers">3</span></div><div class="offer-row"><article class="offer-proof"><small>✦ Full-ride offer · 01</small><strong>DoD SMART</strong><span>Full tuition · stipend · guaranteed job</span></article><article class="offer-proof"><small>✦ Full-ride offer · 02</small><strong>DoD Cyber Scholarship</strong><span>Full tuition · stipend · guaranteed job</span></article><article class="offer-proof"><small>✦ Full-ride offer · 03</small><strong>NSA Stokes</strong><span>Full tuition · stipend · guaranteed job</span></article></div></div>
