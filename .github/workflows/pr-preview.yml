@@ -1,0 +1,26 @@
+name: Build PR preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  package-preview:
+    name: Package website preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request
+        uses: actions/checkout@v4
+
+      - name: Upload website preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-preview
+          path: |
+            index.html
+            assets/
+          if-no-files-found: error
+          retention-days: 14
